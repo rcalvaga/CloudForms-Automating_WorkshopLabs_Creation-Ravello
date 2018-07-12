@@ -26,21 +26,22 @@ vim roles/ravello.applications_create/defaults/main.yaml
 
 *NOTE: Just, modify ravello_app_list, ravello_expiration_time_min and ravello_deploy_topology_start_all variables as you need.*
 
-ravello_app_list:
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-Instructor" ]
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W1" ]
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W2" ]
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W3" ]
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W4" ]
-- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W5" ]
+    ravello_app_list:
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-Instructor" ]
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W1" ]
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W2" ]
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W3" ]
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W4" ]
+    - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W5" ]
 ... truncated output ...
 
 ravello_expiration_time_min: 480
 
 *Recommendation is to keep topology_region as is, for best performance*
-ravello_deploy_topology_region: us-east-5
-ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
-ravello_deploy_topology_start_all: true
+
+    ravello_deploy_topology_region: us-east-5
+    ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
+    ravello_deploy_topology_start_all: true
 
 
 
@@ -86,25 +87,25 @@ localhost                  : ok=15   changed=7    unreachable=0    failed=0
 
 vim roles/sendmail.applications/defaults/main.yaml
 
- sendmail_host: 'localhost'
- sendmail_port: '25'
- sendmail_username: ''
- sendmail_password: ''
- sendmail_from: ''
+    sendmail_host: 'localhost'
+    sendmail_port: '25'
+    sendmail_username: ''
+    sendmail_password: ''
+    sendmail_from: ''
 
 
- sendmail_to:
- - { name: Robert Calva Garcia, email: rcalvaga@redhat.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" }
- - { name: DJ Azulman, email: djazulman@gmail.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
- - { name: Robert Azulman, email: robert_azulman@yahoo.com.mx, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
- - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
- - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
+    sendmail_to:
+        - { name: Robert Calva Garcia, email: rcalvaga@redhat.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" }
+        - { name: DJ Azulman, email: djazulman@gmail.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
+        - { name: Robert Azulman, email: robert_azulman@yahoo.com.mx, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
+        - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
+        - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
 ... truncated output ...
 
 
-sendmail_subject: "CloudForms Workshop: Documentation"
+    sendmail_subject: "CloudForms Workshop: Documentation"
 
-sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Workshop, así como el archivo YAML para accesar a las URLs de dicho Workshop.\n\n\nSaludos cordiales.\n\nRobert J. Calva\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
+    sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Workshop, así como el archivo YAML para accesar a las URLs de dicho Workshop.\n\n\nSaludos cordiales.\n\nRobert J. Calva\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
 
 
 
