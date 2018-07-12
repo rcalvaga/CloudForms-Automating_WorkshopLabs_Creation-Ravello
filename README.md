@@ -12,9 +12,9 @@ vim group_vars/all/credentials.yaml
 
 vim group_vars/all/main.yaml
 
-*NOTE: Just, modify {{ country }} and {{ customer_name }} variables as you need.*
+**NOTE: Just, modify {{ country }} and {{ customer_name }} variables as you need.**
 
-*NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.*
+**NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.**
 
     country: MX
     customer_name: TEST
@@ -24,7 +24,7 @@ vim group_vars/all/main.yaml
 
 vim roles/ravello.applications_create/defaults/main.yaml
 
-*NOTE: Just, modify ravello_app_list, ravello_expiration_time_min and ravello_deploy_topology_start_all variables as you need.*
+**NOTE: Just, modify ravello_app_list, ravello_expiration_time_min and ravello_deploy_topology_start_all variables as you need.**
 
     ravello_app_list:
     - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-Instructor" ]
@@ -37,7 +37,7 @@ vim roles/ravello.applications_create/defaults/main.yaml
 
 ravello_expiration_time_min: 480
 
-*Recommendation is to keep topology_region as is, for best performance*
+**Recommendation is to keep topology_region as is, for best performance**
 
     ravello_deploy_topology_region: us-east-5
     ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
@@ -45,7 +45,7 @@ ravello_expiration_time_min: 480
 
 
 
-*Running the Playbook:*
+**Running the Playbook:**
 
 $ ansible-playbook create-ravello-apps.yaml
 
@@ -82,7 +82,7 @@ localhost                  : ok=15   changed=7    unreachable=0    failed=0
 
 
 
-*Sending E-Mails:*
+**Sending E-Mails:**
 
 
 vim roles/sendmail.applications/defaults/main.yaml
@@ -96,8 +96,8 @@ vim roles/sendmail.applications/defaults/main.yaml
 
     sendmail_to:
         - { name: Robert Calva Garcia, email: rcalvaga@redhat.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" }
-        - { name: DJ Azulman, email: djazulman@gmail.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
-        - { name: Robert Azulman, email: robert_azulman@yahoo.com.mx, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
+        - { name: DJ Azulman, email: djazulman@example.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
+        - { name: Robert Azulman, email: robert_azulman@example.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
         - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
         - { name: customername, email: customer@email, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
 ... truncated output ...
@@ -109,7 +109,7 @@ vim roles/sendmail.applications/defaults/main.yaml
 
 
 
-*Running the Playbook:*
+**Running the Playbook:**
 
 $ ansible-playbook sendmail-applications.yaml
 
@@ -118,8 +118,8 @@ PLAY [Send YAML Application Files to Customers] ********************************
 
 TASK [sendmail.applications : Send Mail with YAML Applications Files to Customers] ********************************************************************************************************************************
 ok: [localhost -> localhost] => (item={u'yaml_app_file': u'LATAM-SME-CloudForms4-Workshop-TEST-Instructor.yaml', u'name': u'Robert Calva Garcia', u'email': u'rcalvaga@redhat.com'})
-ok: [localhost -> localhost] => (item={u'yaml_app_file': u'LATAM-SME-CloudForms4-Workshop-TEST-W1.yaml', u'name': u'DJ Azulman', u'email': u'djazulman@gmail.com'})
-ok: [localhost -> localhost] => (item={u'yaml_app_file': u'LATAM-SME-CloudForms4-Workshop-TEST-W2.yaml', u'name': u'Robert Azulman', u'email': u'robert_azulman@yahoo.com.mx'})
+ok: [localhost -> localhost] => (item={u'yaml_app_file': u'LATAM-SME-CloudForms4-Workshop-TEST-W1.yaml', u'name': u'DJ Azulman', u'email': u'djazulman@example.com'})
+ok: [localhost -> localhost] => (item={u'yaml_app_file': u'LATAM-SME-CloudForms4-Workshop-TEST-W2.yaml', u'name': u'Robert Azulman', u'email': u'robert_azulman@example.com'})
 
 PLAY RECAP ********************************************************************************************************************************************************************************************************
 localhost                  : ok=1    changed=0    unreachable=0    failed=0
