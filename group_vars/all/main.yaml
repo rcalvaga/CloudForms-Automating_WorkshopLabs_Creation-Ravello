@@ -1,0 +1,12 @@
+# Default Variables for Ravello Applications Creation
+#
+# NOTE: Just, modify {{ country }} and {{ customer_name }} variables as you need.
+#
+# NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.
+#
+#
+# Enjoy! :
+
+country: MX
+customer_name: Testing
+bucket_type: "LATAM-SA-{{ country }}"

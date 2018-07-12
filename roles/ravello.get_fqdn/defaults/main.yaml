@@ -1,0 +1,5 @@
+
+#
+ravello_connectivity_check: false
+ravello_connectivity_port: 22
+ravello_connectivity_timeout: 5

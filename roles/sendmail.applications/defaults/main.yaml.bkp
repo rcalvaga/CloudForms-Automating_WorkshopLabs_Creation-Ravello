@@ -1,0 +1,42 @@
+# email server YAML files delivery
+
+ ravello_fqdn_dir: CloudForms4-Workshop
+ sendmail_host: 'localhost'
+ sendmail_port: '25' 
+ sendmail_username: ''
+ sendmail_password: ''
+ sendmail_from: 'Robert J Calva'
+
+ sendmail_to: 
+ - { name: Robert Calva Garcia, email: rcalvaga@redhat.com, yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-Instructor.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W1.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W2.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W3.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W4.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W5.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W6.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W7.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W8.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W9.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W10.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W11.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W12.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W13.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W14.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W15.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W16.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W17.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W18.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W19.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W20.yaml" }
+ - { name: , email: , yaml_app_file: "{{ bucket_type }}-{{ ravello_fqdn_dir }}-{{ customer_name }}-W21.yaml"
+
+ sendmail_subject: "CloudForms Workshop: Documentation"
+ sendmail_cc: ''
+ sendmail_tmp: '/tmp'
+ sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el Workshop, así como el archivo YAML para accesar a las URLs de dicho Workshop.\n\n\nSaludos cordiales.\n\nRobert J. Calva\n\n**Este mail ha sido automatizado via Red Hat Ansible**"
+# sendmail_attach: Red_Hat_CloudForms-Workshop_4hrs_vField.pdf
+ sendmail_attach: Red_Hat_CloudForms-Workshop_8hrs_v2.2.pdf
+ sendmail_headers: ''
+ sendmail_subtype: ''
+ sendmail_charset: 'utf8'

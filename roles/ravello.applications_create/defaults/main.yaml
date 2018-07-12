@@ -1,0 +1,58 @@
+#
+# CloudForms Workshop: Creation of Labs in an Automated Way
+#
+#
+# Default Variables for Ravello Applications Creation
+#
+# NOTE: Just, modify ravello_app_list and ravello_deploy_topology_start_all variables as you need.
+#
+#
+# Enjoy! :)
+#
+
+ravello_blueprint: LATAM-SME-CloudForms4-Workshop-vField-bp
+
+ravello_app_list: 
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-Instructor" ]
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W1" ]
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W2" ]
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W3" ]
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W4" ]
+- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W5" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W6" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W7" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W8" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W9" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W10" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W11" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W12" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W13" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W14" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W15" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W16" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W17" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W18" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W19" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W20" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W21" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W22" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W23" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W24" ]
+#- [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-W25" ]
+
+ravello_vms_list:
+- { vm_name: CloudForms_UI, description: CloudForms Cloud Management Engine Portal }
+- { vm_name: RHEV-M, description: Red Hat Enterprise Virtualization Web Portal }
+- { vm_name: OpenStack, description: RHEL OpenStack Platform Web Portal }
+- { vm_name: vCenter, description: VMware vCenter Web Portal }
+- { vm_name: AnsibleTower3, description: Ansible Tower }
+
+ravello_tmp_dir: /tmp/ravello
+ravello_expiration_time_min: 480
+
+ravello_fqdn_dir: CloudForms4-Workshop
+
+# Recommendation is to keep topology_region as is, for best performance
+ravello_deploy_topology_region: us-east-5
+ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
+ravello_deploy_topology_start_all: true

@@ -1,0 +1,63 @@
+---
+###############################
+## Get Application ID       ###
+###############################
+    - name: Get App ID from Ravello
+      ravello_get_id:
+        resource_name: "{{ ravello_app_name }}"
+        resource_type: applications
+        user: "{{ ravello_login_username }}"
+        password: "{{ ravello_login_password }}"
+      register: app
+      run_once: true
+      tags:
+        - fqdn
+
+###############################
+## Get VM ID       ###
+###############################
+    - name: Get VM ID from Ravello
+      ravello_get_id:
+        resource_type: vms
+        application_id: "{{ app.json.id }}"
+        resource_name: "{{ inventory_hostname }}"
+        user: "{{ ravello_login_username }}"
+        password: "{{ ravello_login_password }}"
+      register: vm
+      tags:
+        - fqdn
+
+###############################
+##  Check VM Connectivity    ##
+###############################
+    - name: Get VM public FQDN
+      uri:
+        url: "https://cloud.ravellosystems.com/api/v1/applications/{{ app.json.id }}/vms/{{ vm.json.id }}/fqdn;deployment"
+        method: GET
+        body_format: json
+        return_content: yes
+        user: "{{ ravello_login_username }}"
+        password: "{{ ravello_login_password }}"
+        force_basic_auth: yes
+        validate_certs: no
+        status_code: 200
+        HEADER_Content-type: "application/json"
+        HEADER_Accept: "application/json"
+      register: ravello_public_ip
+      tags:
+        - fqdn
+
+    - debug: var=ravello_public_ip.json.value
+    - file: path={{ ravello_app_name }}.txt state=touch
+    - lineinfile: 
+            dest: "{{ ravello_app_name }}.txt" 
+            line: "{{ inventory_hostname }}: https://{{ ravello_public_ip.json.value }}"
+
+    - name: Check ssh connectivity
+      wait_for:
+        host: "{{ ravello_public_ip.json.value }} "
+        port: "{{ ravello_connectivity_port }}"
+        timeout: "{{ ravello_connectivity_timeout }}"
+      when: ravello_connectivity_check == true
+      tags:
+        - fqdn
