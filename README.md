@@ -6,25 +6,25 @@ cd CloudForms_Workshop_Creation
 
 vim group_vars/all/credentials.yaml
 
-ravello_login_username: youruser+gptelatam@redhat.com
-ravello_login_password: Y0urP4$$wordH3r3
+    ravello_login_username: youruser+gptelatam@redhat.com
+    ravello_login_password: Y0urP4$$wordH3r3
 
 
 vim group_vars/all/main.yaml
 
-NOTE: Just, modify {{ country }} and {{ customer_name }} variables as you need.
+*NOTE: Just, modify {{ country }} and {{ customer_name }} variables as you need.*
 
-NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.
+*NOTE: {{ country }} variable can be as follows: MX, SAC or BR, for example.*
 
-country: MX
-customer_name: TEST
-bucket_type: "LATAM-SA-{{ country }}"
+    country: MX
+    customer_name: TEST
+    bucket_type: "LATAM-SA-{{ country }}"
 
 
 
 vim roles/ravello.applications_create/defaults/main.yaml
 
-NOTE: Just, modify ravello_app_list, ravello_expiration_time_min and ravello_deploy_topology_start_all variables as you need.
+*NOTE: Just, modify ravello_app_list, ravello_expiration_time_min and ravello_deploy_topology_start_all variables as you need.*
 
 ravello_app_list:
 - [ app_name: "{{ bucket_type }}-CloudForms4-Workshop-{{ customer_name }}-Instructor" ]
@@ -37,14 +37,14 @@ ravello_app_list:
 
 ravello_expiration_time_min: 480
 
-Recommendation is to keep topology_region as is, for best performance
+*Recommendation is to keep topology_region as is, for best performance*
 ravello_deploy_topology_region: us-east-5
 ravello_deploy_topology_optimization: PERFORMANCE_OPTIMIZED
 ravello_deploy_topology_start_all: true
 
 
 
-Running the Playbook:
+*Running the Playbook:*
 
 $ ansible-playbook create-ravello-apps.yaml
 
@@ -81,7 +81,7 @@ localhost                  : ok=15   changed=7    unreachable=0    failed=0
 
 
 
-Sending E-Mails:
+*Sending E-Mails:*
 
 
 vim roles/sendmail.applications/defaults/main.yaml
@@ -108,7 +108,7 @@ sendmail_body: "Hola {{ item.name }}\n\n\nLe envio el archivo PDF para seguir el
 
 
 
-Running the Playbook:
+*Running the Playbook:*
 
 $ ansible-playbook sendmail-applications.yaml
 
