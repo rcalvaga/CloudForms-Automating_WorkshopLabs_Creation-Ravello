@@ -1,6 +1,6 @@
 # CloudForms: Automating Workshop Labs Creation on Ravello
 
-"tar xzvf CloudForms-Automating_WorkshopLabs_Creation-Ravello.tgz"
+tar xzvf CloudForms-Automating_WorkshopLabs_Creation-Ravello.tgz
 
 cd CloudForms_Workshop_Creation
 
